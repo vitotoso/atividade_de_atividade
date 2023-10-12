@@ -10,8 +10,8 @@ def adicionar_tarefa(tarefas,titulo,descricao,date_input):
     print("\n")
 tarefas=[]
 
-def definir_data_entrega (tarefas):
-    if date_input<=data_vencimento:
+def definir_data_entrega (tarefas,date_input,resultado):
+    if date_input <= data_vencimento:
         resultado=str("aprovado")
         aprovados.append(resultado)
 
@@ -21,20 +21,20 @@ def definir_data_entrega (tarefas):
         aprovados.append(resultado)
 aprovados=[]
         
-def editar_tarefa(tarefas,ID,titulo,descricao):
-    if 0 <= ID < len(tarefas):
-       	tarefas[ID]['Titulo'] = titulo
-        tarefas[ID]['Descricao'] = descricao   
-        tarefas[ID]['Date_input'] = date_input 
+def editar_tarefa(tarefas,i,titulo,descricao,date_input):
+    if 0 <= i < len(tarefas):
+       	tarefas[i]['Titulo'] = titulo
+        tarefas[i]['Descricao'] = descricao   
+        tarefas[i]['Date_input'] = date_input 
         print("\n")
         print("--------------- ATUALIZADO ---------------")
         print("Tarefa editada com sucesso!") 
 
-def imprimir_atividade(tarefas):
-    if ID in enumerate(len(tarefas)):
+def imprimir_atividade(pasta,i):
+    if i in enumerate(len(pasta)):
         print("=====================================")
         print("\n")
-        print("ID da tarefa",pasta[ID])
+        print("ID da tarefa",pasta[i])
         print("TITULO: ",pasta['Titulo'])
         print("DESCRIÇÂO: ",pasta['Descrição'])
         print("A TAREFA FOI ENTREGUE : ",pasta['Date_input'])
@@ -69,8 +69,8 @@ while True:
     print("1. Adicionar tarefa.")
     print("2. Editar tarefa.")
     print("3 imprimir tarefas")
-    print("5. Excluir tarefa.")
-    print("6. Sair.")
+    print("4. Excluir tarefa.")
+    print("5. Sair.")
     print("\n")
     op = str(input("Escolha uma opção: "))
 
@@ -80,6 +80,7 @@ while True:
         descricao = str(input("Digite uma descrição para a tarefa: "))
         date_input = input("Digite a data de entrega: YYYY-MM-DD")
         data = datetime.datetime.strptime(date_input,"%Y-%m-%d")
+        definir_data_entrega (tarefas,date_input,resultado)
 
         adicionar_tarefa(tarefas,titulo,descricao,date_input)
 
@@ -93,7 +94,9 @@ while True:
     elif op == "3":
         imprimir_atividade(tarefas)
         
+        
     elif op == "4":
+        deletar_atividades(tarefas,ID)
 
 
 
