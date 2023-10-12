@@ -31,8 +31,8 @@ def editar_tarefa(tarefas,i,titulo,descricao,date_input):
         print("--------------- ATUALIZADO ---------------")
         print("Tarefa editada com sucesso!") 
 
-def imprimir_atividade(pasta,i):
-    if i in enumerate(len(pasta)):
+def imprimir_atividade(pasta):
+    if tarefas in enumerate(len(pasta)):
         print("=====================================")
         print("\n")
         print("ID da tarefa",pasta[i])
@@ -93,6 +93,7 @@ while True:
         editar_tarefa(tarefas,ID,titulo,descricao,date_input)
         
     elif op == "3":
+        
         imprimir_atividade(tarefas)
         
         
