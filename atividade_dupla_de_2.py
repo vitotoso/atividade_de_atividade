@@ -1,3 +1,4 @@
+resultado=("neutro")
 def adicionar_tarefa(tarefas,titulo,descricao,date_input):
     pasta={
         'Titulo': titulo,
@@ -78,7 +79,7 @@ while True:
         
         titulo = str(input("Digite o titulo da tarefa: "))
         descricao = str(input("Digite uma descrição para a tarefa: "))
-        date_input = input("Digite a data de entrega: YYYY-MM-DD")
+        date_input = input("Digite a data de entrega: YYYY-MM-DD: ")
         data = datetime.datetime.strptime(date_input,"%Y-%m-%d")
         definir_data_entrega (tarefas,date_input,resultado)
 
@@ -96,7 +97,11 @@ while True:
         
         
     elif op == "4":
-        deletar_atividades(tarefas,ID)
+        i=int(input("digite a posição da atividade que voce deseja deletar: "))
+        deletar_atividades(tarefas,i)
+        
+    elif op =="5":
+        break
 
 
 
