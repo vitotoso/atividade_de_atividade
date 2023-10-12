@@ -93,7 +93,7 @@ while True:
     elif op == "3":
         imprimir_atividade(tarefas)
         
-    elif op == "4"
+    elif op == "4":
 
 
 
